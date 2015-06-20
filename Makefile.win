@@ -1,0 +1,39 @@
+# Project: UintTesting
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = AllTests.o CuTest.o CuTestTest.o StrUtil.o $(RES)
+LINKOBJ  = AllTests.o CuTest.o CuTestTest.o StrUtil.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = UintTesting.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before UintTesting.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "UintTesting.exe" $(LIBS)
+
+AllTests.o: AllTests.c
+	$(CC) -c AllTests.c -o AllTests.o $(CFLAGS)
+
+CuTest.o: CuTest.c
+	$(CC) -c CuTest.c -o CuTest.o $(CFLAGS)
+
+CuTestTest.o: CuTestTest.c
+	$(CC) -c CuTestTest.c -o CuTestTest.o $(CFLAGS)
+
+StrUtil.o: StrUtil.c
+	$(CC) -c StrUtil.c -o StrUtil.o $(CFLAGS)
